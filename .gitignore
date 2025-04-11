@@ -1,0 +1,43 @@
+# Entornos virtuales
+venv/
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# Archivos de logs y registros
+*.log
+logs/
+*.sqlite3
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Docker y cachés
+__docker_cache__/
+*.tar
+
+# Archivos generados automáticamente
+*.checkpoint
+*.bak
+*.tmp
+
+# Archivos de salida personalizados
+archivos_generados.txt
+archivos_generados-checkpoint.txt
+
+# Otros
+*.egg-info/
+dist/
+build/
