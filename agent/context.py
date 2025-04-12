@@ -1,3 +1,4 @@
+import os
 from dotenv import load_dotenv
 
 class Context:
@@ -13,3 +14,9 @@ class Context:
 
     def get(self, key, default=None):
         return self.config.get(key, os.getenv(key, default))
+def build_context(env_file='.env'):
+    """
+    Construye y devuelve un objeto Context inicializado con el archivo
+    de entorno especificado.
+    """
+    return Context(env_file)

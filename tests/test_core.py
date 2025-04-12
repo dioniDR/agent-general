@@ -1,5 +1,5 @@
 import unittest
-from core import some_function, SomeClass
+from agent.core import some_function, SomeClass
 
 class TestCore(unittest.TestCase):
 

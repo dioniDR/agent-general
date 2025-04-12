@@ -1,42 +1,45 @@
 # main.py
 
 import os
-from dotenv import load_dotenv
 from agent.executor import Executor
-from agent.objectives import get_objective
-from agent.context import build_context
-from config.settings import load_settings
+from utils.logger import get_logger  # Corrected import
 from providers.openai_provider import OpenAIProvider
-from utils.logger import setup_logger
+
+# Placeholder simples mientras se crean los otros módulos
+def get_objective():
+    return "Escribir una documentación básica para el proyecto."
+
+def build_context():
+    return {"archivos": os.listdir(".")}
+
+def load_settings():
+    return {"openai_api_key": os.getenv("OPENAI_API_KEY")}
 
 def main():
-    # Configurar logger
-    setup_logger()
+    logger = get_logger()  # Corrected logger initialization
 
     # Cargar configuración
     settings = load_settings()
+    api_key = settings.get("openai_api_key")
 
-    # Cargar variables de entorno desde el archivo .env
-    load_dotenv()
-
-    # Obtener clave API desde entorno o settings
-    api_key = os.getenv("OPENAI_API_KEY") or settings.get("openai_api_key")
     if not api_key:
+        logger.error("❌ No se encontró la clave de API de OpenAI.")  # Added logging for error
         raise ValueError("❌ No se encontró la clave de API de OpenAI.")
 
-    # Inicializar proveedor OpenAI
-    provider = OpenAIProvider(api_key=api_key)
+    # Inicializar proveedor
+    provider = OpenAIProvider(api_key)
 
-    # Construir contexto inicial del agente
+    # Obtener contexto y objetivo
     contexto = build_context()
-
-    # Obtener objetivo desde settings o prompt
     objetivo = get_objective()
 
-    # Preparar tareas
-    tareas = provider.generar_tareas(objetivo, contexto)
+    # Simulación de tareas (temporal)
+    try:
+        tareas = provider.generar_tareas(objetivo, contexto)
+    except Exception as e:
+        logger.error(f"Error al generar tareas: {e}")  # Added error handling
+        raise
 
-    # Ejecutar tareas con el ejecutor
     executor = Executor(tareas)
     executor.execute()
 

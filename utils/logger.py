@@ -28,4 +28,11 @@ logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
 def get_logger():
+    logger = logging.getLogger("agent-general")
+    if not logger.hasHandlers():  # Avoid duplicate handlers
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+        logger.setLevel(logging.INFO)
     return logger

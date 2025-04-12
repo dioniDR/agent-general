@@ -1,0 +1,19 @@
+# Configuración para el proyecto agent-general
+
+# Modo debug (True/False)
+debug: True
+
+# Nivel de log (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+log_level: INFO
+
+# Configuración de proveedores
+providers:
+  # Configuración para OpenAI
+  openai:
+    model: gpt-4o
+    max_tokens: 150
+    temperature: 0.7
+  
+  # Configuración para Claude
+  claude:
+    enabled: False

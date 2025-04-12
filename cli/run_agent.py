@@ -2,7 +2,7 @@ import argparse
 import logging
 import os
 from dotenv import load_dotenv
-from agent import Agent
+from agent import Core
 
 def setup_logging():
     logging.basicConfig(level=logging.INFO,
@@ -33,7 +33,7 @@ def main():
     logger.info('Starting agent...')
     
     try:
-        agent = Agent(config_path=args.config)
+        agent = Core(config_path=args.config)
         agent.run()
     except Exception as e:
         logger.error(f'An error occurred: {e}')

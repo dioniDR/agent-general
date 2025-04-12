@@ -1,16 +1,10 @@
 # __init__.py
 
-"""
-Nombre del Proyecto: MiProyecto
-Descripción: Este módulo es parte del paquete MiProyecto, diseñado para [descripción del propósito del proyecto].
-Autor: [Tu Nombre]
-Fecha: [Fecha de creación]
-Licencia: [Tipo de licencia]
-"""
+# Nombre del Proyecto: agent-general
+# Descripción: Conjunto de utilidades para el proyecto agent-general.
 
-# Importar submódulos
-from .modulo1 import *
-from .modulo2 import *
+# Importar submódulos reales
+from .logger import get_logger
 
 # Definir la versión del paquete
 __version__ = '0.1.0'

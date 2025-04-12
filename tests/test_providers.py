@@ -1,5 +1,5 @@
 import unittest
-from providers import DataProvider
+from providers import OpenAIProvider as DataProvider
 
 class TestDataProvider(unittest.TestCase):
 

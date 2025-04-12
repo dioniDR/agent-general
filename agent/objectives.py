@@ -55,3 +55,13 @@ if __name__ == "__main__":
     objective.execute()
     result = objective.evaluate()
     print(f"Resultado de la evaluación: {result}")
+def get_objective(name=None, description=None):
+    """
+    Obtiene o crea un objetivo basado en los parámetros dados.
+    Si no se proporcionan parámetros, se crea un objetivo por defecto.
+    """
+    if not name:
+        name = "Objetivo por defecto"
+        description = "Objetivo creado por defecto"
+    
+    return SpecificObjective(name, description, "parámetro_default")
