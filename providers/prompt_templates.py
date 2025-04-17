@@ -29,9 +29,15 @@ class PromptTemplates:
         :return: Cadena con el prompt generado.
         """
         return (
-            f"Objetivo: {objective}\n\n"
-            f"Restricciones: {constraints}\n\n"
-            "Por favor, genera una lista de tareas que cumplan con el objetivo y las restricciones."
+            f"Actúa como un asistente técnico que genera comandos precisos para ejecutar en Linux.\n\n"
+            f"Objetivo del usuario: {objective}\n\n"
+            f"Genera una lista de MÁXIMO 4 comandos de terminal ejecutables que cumplan con este objetivo. "
+            f"No expliques qué hacen los comandos, solo lístalos. "
+            f"Cada comando debe ser ejecutable directamente en una terminal Linux. "
+            f"Para objetivos simples, un solo comando es preferible.\n\n"
+            f"Ejemplo de formato:\n"
+            f"1. comando 1\n"
+            f"2. comando 2\n"
         )
 
     @staticmethod
